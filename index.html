@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NurivaCRM｜產後護理照護管理系統</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VLE26PDKP4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VLE26PDKP4');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --rose: #C85A7F;
+    --rose-light: #E8A0B8;
+    --rose-xlight: #FDF0F5;
+    --rose-dark: #8B3558;
+    --navy: #1E2D4A;
+    --navy-light: #2E4470;
+    --gold: #C4883A;
+    --text: #1A1F2E;
+    --text-muted: #5E6B82;
+    --white: #FFFFFF;
+    --off-white: #FAFBFD;
+    --border: #E8ECF2;
+    --bg-section: #F4F6FA;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans TC', Georgia, system-ui, sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 68px;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 var(--border);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .logo-emblem {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; box-shadow: 0 4px 12px rgba(200,90,127,0.3);
+  }
+  .logo-text-group { display: flex; flex-direction: column; }
+  .logo-name { font-size: 17px; font-weight: 800; color: var(--navy); letter-spacing: -0.3px; }
+  .logo-tagline { font-size: 10px; color: var(--rose); font-weight: 600; letter-spacing: 1.5px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--navy); color: white; text-decoration: none;
+    padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 700;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--rose-dark); }
+
+  /* HERO */
+  .hero {
+    padding: 130px 5% 80px;
+    background: linear-gradient(160deg, #FFFFFF 0%, var(--rose-xlight) 40%, #F0F4FF 100%);
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center;
+  }
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,90,127,0.08); border: 1px solid rgba(200,90,127,0.2);
+    padding: 7px 16px; border-radius: 6px; margin-bottom: 24px;
+  }
+  .kicker-icon { font-size: 14px; }
+  .kicker-text { font-size: 12px; font-weight: 700; color: var(--rose-dark); letter-spacing: 0.8px; }
+  .hero h1 {
+    font-size: 50px; font-weight: 900; line-height: 1.1;
+    color: var(--navy); margin-bottom: 22px; letter-spacing: -1px;
+  }
+  .hero h1 em { font-style: normal; color: var(--rose); }
+  .hero-lead { font-size: 18px; color: var(--text-muted); line-height: 1.75; margin-bottom: 36px; max-width: 520px; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-rose {
+    background: var(--rose); color: white; text-decoration: none;
+    padding: 14px 32px; border-radius: 8px; font-size: 16px; font-weight: 700;
+    box-shadow: 0 6px 20px rgba(200,90,127,0.35); transition: all 0.2s;
+  }
+  .btn-rose:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,90,127,0.4); }
+  .btn-navy-outline {
+    background: transparent; color: var(--navy); text-decoration: none;
+    padding: 13px 28px; border-radius: 8px; font-size: 16px; font-weight: 600;
+    border: 2px solid var(--border); transition: all 0.2s;
+  }
+  .btn-navy-outline:hover { border-color: var(--navy); }
+  .trust-row { display: flex; align-items: center; gap: 20px; }
+  .trust-avatars { display: flex; }
+  .trust-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 2px solid white; margin-left: -8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; background: var(--rose-xlight);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .trust-text { font-size: 13px; color: var(--text-muted); }
+  .trust-text strong { color: var(--navy); }
+  .trust-stars { color: var(--gold); font-size: 14px; }
+
+  /* HERO RIGHT - PHONE MOCKUP STYLE */
+  .hero-right { display: flex; flex-direction: column; gap: 16px; }
+  .app-card {
+    background: white; border-radius: 16px; padding: 20px;
+    box-shadow: 0 8px 32px rgba(30,45,74,0.10);
+    border: 1px solid var(--border);
+  }
+  .app-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .app-icon {
+    width: 36px; height: 36px; border-radius: 10px; display: flex;
+    align-items: center; justify-content: center; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .app-icon.rose-bg { background: var(--rose-xlight); }
+  .app-icon.navy-bg { background: #EEF2FF; }
+  .app-icon.gold-bg { background: #FFF7EE; }
+  .app-card-title { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .app-card-sub { font-size: 11px; color: var(--text-muted); }
+  .msg-bubble {
+    background: var(--bg-section); border-radius: 10px 10px 10px 0;
+    padding: 10px 14px; font-size: 12px; color: var(--text-muted); margin-bottom: 6px;
+  }
+  .msg-bubble.sent {
+    background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+    color: white; border-radius: 10px 10px 0 10px; margin-left: auto; max-width: 80%;
+  }
+  .form-progress { margin-top: 8px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+  .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--rose), var(--rose-dark)); border-radius: 3px; }
+  .stat-row { display: flex; gap: 12px; }
+  .mini-stat { flex: 1; background: var(--bg-section); border-radius: 10px; padding: 12px; text-align: center; }
+  .mini-stat-n { font-size: 22px; font-weight: 800; color: var(--navy); }
+  .mini-stat-l { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+  .upload-status { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: #ECFDF5; border-radius: 8px; font-size: 12px; }
+  .upload-ok { width: 20px; height: 20px; border-radius: 50%; background: #10B981; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: 900; flex-shrink: 0; }
+  .upload-text { color: #065F46; font-weight: 600; }
+
+  /* SECTION BASE */
+  section { padding: 100px 5%; }
+  .section-header { margin-bottom: 60px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 700; color: var(--rose); letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--rose); }
+  .sec-title { font-size: 40px; font-weight: 800; color: var(--navy); line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .sec-sub { font-size: 17px; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
+
+  /* HOW IT WORKS */
+  .how-section { background: var(--bg-section); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 60px; position: relative; }
+  .steps::before {
+    content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%;
+    height: 2px; background: repeating-linear-gradient(90deg, var(--rose-light) 0, var(--rose-light) 8px, transparent 8px, transparent 16px);
+    z-index: 0;
+  }
+  .step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: white; border: 3px solid var(--rose-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 900; color: var(--rose);
+    margin: 0 auto 20px; box-shadow: 0 4px 16px rgba(200,90,127,0.15);
+  }
+  .step.active .step-num { background: var(--rose); color: white; border-color: var(--rose); }
+  .step-icon { font-size: 20px; }
+  .step-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* FEATURES ALTERNATING */
+  .feat-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 80px 5%; }
+  .feat-alt:nth-child(even) { background: var(--bg-section); direction: rtl; }
+  .feat-alt:nth-child(even) > * { direction: ltr; }
+  .feat-visual {
+    background: white; border-radius: 20px; padding: 36px;
+    box-shadow: 0 12px 40px rgba(30,45,74,0.08); border: 1px solid var(--border);
+  }
+  .feat-visual.dark-bg { background: var(--navy); }
+  .feat-eyebrow { font-size: 11px; font-weight: 700; color: var(--rose); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+  .feat-title { font-size: 28px; font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+  .feat-desc { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 24px; }
+  .feat-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-muted); }
+  .feat-list li::before { content: '✦'; color: var(--rose); font-size: 10px; margin-top: 4px; flex-shrink: 0; }
+  .stat-highlight {
+    display: inline-flex; align-items: baseline; gap: 4px;
+    margin-top: 20px; padding: 14px 20px;
+    background: var(--rose-xlight); border-radius: 10px;
+  }
+  .stat-big { font-size: 36px; font-weight: 900; color: var(--rose); }
+  .stat-desc { font-size: 13px; color: var(--rose-dark); max-width: 140px; line-height: 1.4; }
+
+  /* COMPARISON CARD */
+  .vs-grid { display: grid; grid-template-columns: 1fr 2px 1fr; gap: 32px; align-items: start; margin-top: 20px; }
+  .vs-divider { background: var(--border); border-radius: 2px; align-self: stretch; min-height: 200px; }
+  .vs-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; }
+  .vs-col h4.before { color: #ef4444; }
+  .vs-col h4.after { color: #10b981; }
+  .vs-item { font-size: 15px; color: var(--text-muted); padding: 10px 0; border-bottom: 1px dashed var(--border); display: flex; align-items: center; gap: 8px; }
+  .vs-item.bad::before { content: '✗'; color: #ef4444; font-weight: 700; }
+  .vs-item.good::before { content: '✓'; color: #10b981; font-weight: 700; }
+
+  /* PRICING */
+  .pricing-warm { background: var(--bg-section); }
+  .pricing-grid-warm { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+  .pw-card {
+    background: white; border-radius: 20px; padding: 36px;
+    border: 2px solid var(--border); position: relative; transition: all 0.25s;
+  }
+  .pw-card:hover { border-color: var(--rose-light); box-shadow: 0 20px 56px rgba(200,90,127,0.12); transform: translateY(-4px); }
+  .pw-card.best {
+    border-color: var(--rose); background: var(--navy);
+    box-shadow: 0 20px 56px rgba(30,45,74,0.2);
+  }
+  .pw-best-tag {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--rose); color: white; font-size: 11px; font-weight: 800;
+    padding: 4px 16px; border-radius: 20px; letter-spacing: 0.5px; white-space: nowrap;
+  }
+  .pw-plan { font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 1.5px; margin-bottom: 6px; }
+  .pw-card.best .pw-plan { color: var(--rose-light); }
+  .pw-name { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 20px; }
+  .pw-card.best .pw-name { color: white; }
+  .pw-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+  .pw-price-num { font-size: 52px; font-weight: 900; color: var(--rose); line-height: 1; }
+  .pw-price-unit { font-size: 14px; color: var(--text-muted); }
+  .pw-card.best .pw-price-unit { color: rgba(255,255,255,0.6); }
+  .pw-note { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+  .pw-card.best .pw-note { color: rgba(255,255,255,0.5); }
+  .pw-sep { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .pw-card.best .pw-sep { border-color: rgba(255,255,255,0.1); }
+  .pw-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .pw-list li { font-size: 14px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 8px; }
+  .pw-card.best .pw-list li { color: rgba(255,255,255,0.75); }
+  .pw-list li::before { content: '●'; font-size: 6px; color: var(--rose-light); margin-top: 6px; flex-shrink: 0; }
+  .pw-card.best .pw-list li::before { color: var(--rose-light); }
+  .pw-cta {
+    display: block; text-align: center; text-decoration: none; margin-top: 32px;
+    padding: 13px 24px; border-radius: 10px; font-size: 15px; font-weight: 700;
+    border: 2px solid var(--rose-light); color: var(--rose); transition: all 0.2s;
+  }
+  .pw-cta:hover { background: var(--rose); color: white; border-color: var(--rose); }
+  .pw-card.best .pw-cta { background: var(--rose); color: white; border-color: var(--rose); }
+  .pw-card.best .pw-cta:hover { background: white; color: var(--rose-dark); border-color: white; }
+
+  /* Pricing card selectable */
+  .pw-selectable { cursor: pointer; }
+  .pw-sel-badge {
+    display: none; margin-top: 16px;
+    text-align: center; font-size: 12px; font-weight: 700;
+    color: var(--rose); background: var(--rose-xlight);
+    border: 1.5px solid var(--rose-light); border-radius: 20px;
+    padding: 5px 14px; letter-spacing: 0.3px;
+  }
+  .pw-card.pw-selected .pw-sel-badge { display: block; }
+  .pw-card.best.pw-selected .pw-sel-badge {
+    color: white; background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .pw-card:not(.best).pw-selected {
+    border-color: var(--rose); box-shadow: 0 12px 36px rgba(200,90,127,0.15);
+  }
+
+  /* Plan A highlight list item */
+  .pw-list-highlight {
+    font-size: 14px; color: var(--rose-dark) !important;
+    font-weight: 700;
+  }
+  .pw-list-highlight::before { color: var(--rose) !important; }
+
+  /* Best card enlarged fonts */
+  .pw-card.best .pw-best-tag { font-size: 13px; padding: 5px 18px; }
+  .pw-card.best .pw-plan { font-size: 14px; }
+  .pw-card.best .pw-name { font-size: 26px; }
+  .pw-card.best .pw-note { font-size: 15px; }
+  .pw-card.best .pw-list li { font-size: 16px; }
+
+  /* TESTIMONIALS */
+  .testimonials-section { padding: 100px 5%; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+  .testimonial-card {
+    background: var(--off-white); border-radius: 16px; padding: 28px;
+    border: 1px solid var(--border);
+  }
+  .testimonial-quote { font-size: 36px; color: var(--rose-light); line-height: 1; margin-bottom: 12px; }
+  .testimonial-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--rose-xlight); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .author-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .author-role { font-size: 12px; color: var(--text-muted); }
+  .test-stars { color: var(--gold); font-size: 12px; margin-bottom: 4px; }
+
+  /* ROADMAP WARM */
+  .roadmap-warm { background: var(--navy); padding: 100px 5%; }
+  .roadmap-warm .sec-title { color: white; }
+  .roadmap-warm .sec-sub { color: rgba(255,255,255,0.6); }
+  .roadmap-warm .eyebrow { color: var(--rose-light); }
+  .roadmap-warm .eyebrow::before { background: var(--rose-light); }
+  .phases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 60px; background: rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; }
+  .phase-card { padding: 32px 24px; background: rgba(255,255,255,0.04); transition: background 0.2s; }
+  .phase-card:hover { background: rgba(255,255,255,0.08); }
+  .phase-card.current { background: rgba(200,90,127,0.15); border-top: 3px solid var(--rose); }
+  .phase-n { font-size: 11px; font-weight: 700; color: var(--rose-light); letter-spacing: 1.5px; margin-bottom: 8px; }
+  .phase-title { font-size: 17px; font-weight: 700; color: white; margin-bottom: 10px; }
+  .phase-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+  .phase-status {
+    display: inline-block; margin-top: 14px; font-size: 10px; font-weight: 700;
+    padding: 3px 10px; border-radius: 10px; letter-spacing: 0.5px;
+  }
+  .status-active { background: rgba(200,90,127,0.2); color: var(--rose-light); border: 1px solid rgba(200,90,127,0.3); }
+  .status-coming { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); }
+
+  /* CTA */
+  .cta-warm {
+    padding: 100px 5%;
+    background: linear-gradient(135deg, var(--rose-xlight), white, #EEF2FF);
+    text-align: center;
+  }
+  .cta-warm h2 { font-size: 44px; font-weight: 900; color: var(--navy); margin-bottom: 16px; letter-spacing: -0.5px; }
+  .cta-warm p { font-size: 18px; color: var(--text-muted); margin-bottom: 40px; }
+  .cta-warm-actions { display: flex; gap: 16px; justify-content: center; }
+  .cta-contact-info { margin-top: 32px; font-size: 14px; color: var(--text-muted); }
+  .cta-contact-info a { color: var(--navy); text-decoration: none; font-weight: 600; }
+
+  /* FOOTER English serif */
+  .footer-brand-warm .logo-name,
+  .footer-brand-warm p,
+  .footer-col a,
+  .footer-bottom span {
+    font-family: 'Playfair Display', 'Noto Sans TC', Georgia, serif;
+  }
+  .footer-brand-warm .logo-name {
+    font-weight: 700; letter-spacing: 0.5px;
+  }
+  .footer-compliance {
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  footer.warm {
+    background: var(--navy); color: rgba(255,255,255,0.5);
+    padding: 60px 5% 32px;
+  }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 48px; }
+  .footer-brand-warm { max-width: 300px; }
+  .footer-brand-warm p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 12px; line-height: 1.65; }
+  .footer-links { display: flex; gap: 48px; }
+  .footer-col h4 { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--rose-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; }
+  .footer-compliance { color: var(--rose-light); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-emblem">🌸</div>
+    <div class="logo-text-group">
+      <span class="logo-name">NurivaCRM</span>
+      <span class="logo-tagline">產後照護智慧管理</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">功能特色</a></li>
+    <li><a href="#pricing">費用方案</a></li>
+    <li><a href="#roadmap">發展藍圖</a></li>
+    <li><a href="#contact">聯絡我們</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">預約免費試用</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="kicker-icon">🏥</span>
+      <span class="kicker-text">專為台灣產後護理之家打造</span>
+    </div>
+    <h1>讓護理回歸<br><em>照護本身</em></h1>
+    <p class="hero-lead">整合衛福部照護表單、LINE & Facebook 雙平台客服、AI 照護助理。低月租 SaaS 方案，讓機構擺脫行政負擔，專注照護每位產婦及寶寶。</p>
+    <div class="hero-ctas">
+      <a class="btn-rose" href="#contact">預約免費試用 →</a>
+      <a class="btn-navy-outline" href="#pricing">查看費用方案</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-avatars">
+        <div class="trust-avatar">👩‍⚕️</div>
+        <div class="trust-avatar">👩‍⚕️</div>
+        <div class="trust-avatar">👩‍⚕️</div>
+      </div>
+      <div class="trust-text">
+        <div class="trust-stars">★★★★★</div>
+        <strong>10 家</strong>機構深度訪談，<strong>平均滿意度 4.3/5.0</strong>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="app-card">
+      <div class="app-card-header">
+        <div class="app-icon rose-bg">📊</div>
+        <div>
+          <div class="app-card-title">護理長儀表板</div>
+          <div class="app-card-sub">今日 2025 / 03 / 15</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="mini-stat">
+          <div class="mini-stat-n">24</div>
+          <div class="mini-stat-l">館內產婦</div>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-stat-n" style="color:var(--rose);">7</div>
+          <div class="mini-stat-l">待回訊息</div>
+        </div>
+        <div class="mini-stat">
+          <div class="mini-stat-n" style="color:#10b981;">100%</div>
+          <div class="mini-stat-l">表單上傳</div>
+        </div>
+      </div>
+    </div>
+    <div class="app-card">
+      <div class="app-card-header">
+        <div class="app-icon" style="background:#E8F4FF;">💬</div>
+        <div>
+          <div class="app-card-title">客服訊息整合</div>
+          <div class="app-card-sub">LINE + Facebook 統一後台</div>
+        </div>
+      </div>
+      <div class="msg-bubble">王○○媽媽：請問明天的哺乳課還有位置嗎？</div>
+      <div class="msg-bubble sent">您好！明天上午 10:00 場次尚有 2 席，是否為您預留？</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">✓ 自動關聯至 CRM 客戶記錄</div>
+    </div>
+    <div class="app-card">
+      <div class="app-card-header">
+        <div class="app-icon gold-bg">📋</div>
+        <div>
+          <div class="app-card-title">衛福部表單上傳</div>
+          <div class="app-card-sub">排程自動執行</div>
+        </div>
+      </div>
+      <div class="form-progress">
+        <div class="progress-label">
+          <span>本月上傳進度</span>
+          <span style="color:var(--rose);font-weight:700;">100%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:100%;"></div>
+        </div>
+      </div>
+      <div class="upload-status" style="margin-top:12px;">
+        <div class="upload-ok">✓</div>
+        <span class="upload-text">今日排程上傳完成：產婦入住評估 ×3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-header">
+    <div class="eyebrow">使用流程</div>
+    <h2 class="sec-title">4 步驟開始數位轉型</h2>
+    <p class="sec-sub">最快一週內完成導入，不需複雜 IT 設定，我們全程陪伴。</p>
+  </div>
+  <div class="steps">
+    <div class="step active">
+      <div class="step-num"><span class="step-icon">🎯</span></div>
+      <div class="step-title">需求諮詢</div>
+      <p class="step-desc">30 分鐘 Demo 演示，了解機構現況，確認適合方案。</p>
+    </div>
+    <div class="step">
+      <div class="step-num"><span class="step-icon">⚙️</span></div>
+      <div class="step-title">系統設定</div>
+      <p class="step-desc">我們協助完成 LINE、FB 串接與衛福部申報設定，全程到位，無須 IT 部門介入。</p>
+    </div>
+    <div class="step">
+      <div class="step-num"><span class="step-icon">📚</span></div>
+      <div class="step-title">教育訓練</div>
+      <p class="step-desc">2 小時線上培訓，護理師與行政人員快速上手。</p>
+    </div>
+    <div class="step">
+      <div class="step-num"><span class="step-icon">🚀</span></div>
+      <div class="step-title">正式上線</div>
+      <p class="step-desc">7 天內完成導入，提供 30 天優先技術支援。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: 雙平台 -->
+<div class="feat-alt">
+  <div class="feat-text">
+    <span class="feat-eyebrow">客服整合</span>
+    <h3 class="feat-title">LINE & Facebook<br>統一後台，零漏接</h3>
+    <p class="feat-desc">再也不用在兩個 App 之間切換。所有客服訊息整合到同一介面，並自動關聯產婦 CRM 記錄，交班時完整交接，不再漏接重要訊息。</p>
+    <ul class="feat-list">
+      <li>LINE Messaging API + Meta Graph API 雙向串接</li>
+      <li>訊息自動關聯對應產婦客戶記錄</li>
+      <li>交班訊息完整率從 65% 提升至 98%</li>
+    </ul>
+    <div class="stat-highlight">
+      <span class="stat-big">89%</span>
+      <span class="stat-desc">每日客服切換耗時節省比例</span>
+    </div>
+  </div>
+  <div class="feat-visual">
+    <div class="vs-grid">
+      <div class="vs-col">
+        <h4 class="before">❌ 使用前</h4>
+        <div class="vs-item bad">每日切換 LINE / FB 45 分鐘</div>
+        <div class="vs-item bad">交班訊息漏接率 30%</div>
+        <div class="vs-item bad">訊息無法關聯客戶記錄</div>
+        <div class="vs-item bad">重複詢問率高達 40%</div>
+      </div>
+      <div class="vs-divider"></div>
+      <div class="vs-col">
+        <h4 class="after">✓ 使用後</h4>
+        <div class="vs-item good">統一後台，切換時間 &lt;5 分鐘</div>
+        <div class="vs-item good">訊息漏接率降至 3% 以下</div>
+        <div class="vs-item good">自動關聯產婦 CRM 記錄</div>
+        <div class="vs-item good">交班完整性達 98%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE: 衛福部 -->
+<div class="feat-alt">
+  <div class="feat-text">
+    <span class="feat-eyebrow">法規遵循</span>
+    <h3 class="feat-title">衛福部表單<br>自動排程上傳</h3>
+    <p class="feat-desc">完整整合衛福部表單，內建欄位驗證自動提示，排程定時上傳，維護期間不再被迫退回紙本作業。</p>
+    <ul class="feat-list">
+      <li>核心照護表單全面電子化</li>
+      <li>欄位驗證自動提示，避免重工</li>
+      <li>系統停用期間資料無縫銜接</li>
+    </ul>
+  </div>
+  <div class="feat-visual">
+    <div style="font-size:12px;font-weight:700;color:var(--text-muted);letter-spacing:1px;margin-bottom:16px;text-transform:uppercase;">核心照護表單</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-section);border-radius:8px;font-size:13px;">
+        <span style="color:#10b981;font-weight:700;">✓</span> 產婦個案基本資料
+        <span style="margin-left:auto;font-size:11px;color:var(--text-muted);">自動上傳</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-section);border-radius:8px;font-size:13px;">
+        <span style="color:#10b981;font-weight:700;">✓</span> 產婦入住評估
+        <span style="margin-left:auto;font-size:11px;color:var(--text-muted);">自動上傳</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-section);border-radius:8px;font-size:13px;">
+        <span style="color:#10b981;font-weight:700;">✓</span> 嬰兒照護紀錄
+        <span style="margin-left:auto;font-size:11px;color:var(--text-muted);">自動上傳</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-section);border-radius:8px;font-size:13px;">
+        <span style="color:#10b981;font-weight:700;">✓</span> 親子同室紀錄
+        <span style="margin-left:auto;font-size:11px;color:var(--text-muted);">自動上傳</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="section pricing-warm" id="pricing">
+  <div class="section-header">
+    <div class="eyebrow">費用方案</div>
+    <h2 class="sec-title">低月租，高品質</h2>
+    <p class="sec-sub">依床位數彈性計費，讓各規模機構都能輕鬆起步。</p>
+  </div>
+  <div class="pricing-grid-warm">
+    <div class="pw-card pw-selectable" onclick="selectPlanCard(this,50,'A','基礎照護')">
+      <div class="pw-plan">A 方案</div>
+      <div class="pw-name">基礎照護</div>
+      <div class="pw-price">
+        <span class="pw-price-num">50</span>
+        <span class="pw-price-unit">元 / 床 / 日</span>
+      </div>
+      <div class="pw-note">數位化第一步</div>
+      <hr class="pw-sep">
+      <ul class="pw-list">
+        <li>衛福部所有表單整合</li>
+        <li>基礎客戶管理系統</li>
+        <li>雲端資料安全備份</li>
+        <li class="pw-list-highlight">精簡版表單加強功能</li>
+      </ul>
+      <div class="pw-sel-badge">✓ 試算中</div>
+      <a class="pw-cta" href="#contact" onclick="event.stopPropagation()">開始使用</a>
+    </div>
+    <div class="pw-card best pw-selectable pw-selected" onclick="selectPlanCard(this,60,'B','進階整合')">
+      <div class="pw-best-tag">⭐ 最受歡迎方案</div>
+      <div class="pw-plan">B 方案</div>
+      <div class="pw-name">進階整合</div>
+      <div class="pw-price">
+        <span class="pw-price-num">60</span>
+        <span class="pw-price-unit">元 / 床 / 日</span>
+      </div>
+      <div class="pw-note">強化客戶關係，提升行政效率</div>
+      <hr class="pw-sep">
+      <ul class="pw-list">
+        <li>包含 A 方案全部功能</li>
+        <li>CRM 客戶關係管理</li>
+        <li>參觀單 / 電子合約系統</li>
+        <li>LINE & Facebook 整合</li>
+        <li>排程自動上傳衛福部資料</li>
+      </ul>
+      <div class="pw-sel-badge">✓ 試算中</div>
+      <a class="pw-cta" href="#contact" onclick="event.stopPropagation()">開始使用</a>
+    </div>
+    <div class="pw-card pw-selectable" onclick="selectPlanCard(this,70,'C','旗艦全功能')">
+      <div class="pw-plan">C 方案</div>
+      <div class="pw-name">旗艦全功能</div>
+      <div class="pw-price">
+        <span class="pw-price-num">70</span>
+        <span class="pw-price-unit">元 / 床 / 日</span>
+      </div>
+      <div class="pw-note">頂級機構完整數位生態系</div>
+      <hr class="pw-sep">
+      <ul class="pw-list">
+        <li>包含 B 方案全部功能</li>
+        <li>房費管理系統</li>
+        <li>產婦專屬 APP（iOS / Android）</li>
+        <li>課程報名系統</li>
+      </ul>
+      <div class="pw-sel-badge">✓ 試算中</div>
+      <a class="pw-cta" href="#contact" onclick="event.stopPropagation()">開始使用</a>
+    </div>
+  </div>
+
+  <!-- CALCULATOR V2 -->
+  <div class="cv2-wrapper">
+    <div class="cv2-card">
+
+      <!-- Header -->
+      <div class="cv2-header">
+        <div class="cv2-header-left">
+          <div class="cv2-header-icon">💰</div>
+          <div>
+            <div class="cv2-header-title">費用試算器</div>
+            <div class="cv2-header-sub">選擇方案與床位數，即時試算每月費用</div>
+          </div>
+        </div>
+        <div class="cv2-header-note">💡 實際費用依合約為準</div>
+      </div>
+
+      <div class="cv2-body">
+
+        <!-- Plan indicator -->
+        <div class="cv2-plan-indicator">
+          <span class="cv2-pi-icon">💰</span>
+          <span class="cv2-pi-label">目前試算方案</span>
+          <span class="cv2-pi-val" id="piPlan">B 方案・進階整合・$60 / 床 / 日</span>
+          <span class="cv2-pi-hint">← 點選上方方案卡片可切換</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="cv2-controls">
+          <div class="cv2-ctrl">
+            <div class="cv2-ctrl-top">
+              <span class="cv2-ctrl-label">🛏 床位數</span>
+              <div class="cv2-stepper-row">
+                <button class="cv2-step" onclick="adjustBeds(-5)">−</button>
+                <input class="cv2-num" id="beds" type="number" value="20" min="1" max="500" oninput="syncSlider();recalc()">
+                <button class="cv2-step" onclick="adjustBeds(5)">+</button>
+              </div>
+            </div>
+            <input class="cv2-slider" id="bedsSlider" type="range" min="1" max="100" value="20" oninput="syncBeds(this.value)">
+            <div class="cv2-slider-labels"><span>1</span><span>50</span><span>100+</span></div>
+          </div>
+          <div class="cv2-ctrl">
+            <div class="cv2-ctrl-top">
+              <span class="cv2-ctrl-label">📅 計算天數</span>
+              <div class="cv2-stepper-row">
+                <button class="cv2-step" onclick="adjustDays(-1)">−</button>
+                <input class="cv2-num" id="days" type="number" value="30" min="1" max="365" oninput="recalc()">
+                <button class="cv2-step" onclick="adjustDays(1)">+</button>
+              </div>
+            </div>
+            <div class="cv2-presets">
+              <button class="cv2-preset" onclick="setDays(30)">1 個月</button>
+              <button class="cv2-preset" onclick="setDays(90)">3 個月</button>
+              <button class="cv2-preset" onclick="setDays(180)">半年</button>
+              <button class="cv2-preset" onclick="setDays(365)">1 年</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="cv2-result-bar">
+          <div class="cv2-result-info">
+            <div class="cv2-result-label">預估費用</div>
+            <div class="cv2-chips">
+              <span class="cv2-chip" id="chipPlan">B 方案</span>
+              <span class="cv2-chip-sep">×</span>
+              <span class="cv2-chip" id="chipBeds">20 床</span>
+              <span class="cv2-chip-sep">×</span>
+              <span class="cv2-chip" id="chipDays">30 天</span>
+            </div>
+            <div class="cv2-formula" id="formula">= $60 × 20 × 30</div>
+          </div>
+          <div class="cv2-result-num" id="result">$36,000</div>
+          <a class="cv2-cta" href="mailto:hello@nuriva.tw">取得正式報價 →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Calculator V2 ── */
+  .cv2-wrapper { margin-top: 56px; }
+  .cv2-card {
+    background: white; border-radius: 24px;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 16px 56px rgba(30,45,74,0.10);
+    overflow: hidden;
+  }
+
+  /* Header */
+  .cv2-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 36px;
+    background: linear-gradient(135deg, var(--navy) 0%, #2a3f6a 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .cv2-header-left { display: flex; align-items: center; gap: 14px; }
+  .cv2-header-icon { font-size: 26px; }
+  .cv2-header-title { font-size: 17px; font-weight: 800; color: white; }
+  .cv2-header-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+  .cv2-header-note { font-size: 12px; color: rgba(255,255,255,0.35); font-style: italic; }
+
+  /* Body */
+  .cv2-body { padding: 32px 36px; display: flex; flex-direction: column; gap: 28px; }
+  .cv2-section-label {
+    font-size: 11px; font-weight: 700; color: var(--text-muted);
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: -16px;
+  }
+
+  /* Plan indicator */
+  .cv2-plan-indicator {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    background: var(--rose-xlight); border: 1.5px solid var(--rose-light);
+    border-radius: 12px; padding: 12px 20px;
+  }
+  .cv2-pi-icon { font-size: 16px; }
+  .cv2-pi-label { font-size: 11px; font-weight: 700; color: var(--rose-dark); letter-spacing: 1px; text-transform: uppercase; }
+  .cv2-pi-val { font-size: 14px; font-weight: 800; color: var(--navy); }
+  .cv2-pi-hint { font-size: 11px; color: var(--text-muted); margin-left: auto; font-style: italic; }
+
+  /* Controls */
+  .cv2-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .cv2-ctrl {
+    background: var(--bg-section); border-radius: 16px;
+    padding: 20px 22px; border: 1.5px solid var(--border);
+  }
+  .cv2-ctrl-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .cv2-ctrl-label { font-size: 13px; font-weight: 700; color: var(--navy); }
+  .cv2-stepper-row {
+    display: flex; align-items: center;
+    background: white; border: 2px solid var(--border); border-radius: 10px; overflow: hidden;
+  }
+  .cv2-stepper-row:focus-within { border-color: var(--rose); }
+  .cv2-step {
+    width: 36px; height: 40px; border: none; background: transparent;
+    font-size: 18px; font-weight: 700; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s; font-family: inherit; flex-shrink: 0;
+  }
+  .cv2-step:hover { background: var(--rose-xlight); color: var(--rose); }
+  .cv2-num {
+    width: 56px; border: none; background: transparent;
+    text-align: center; font-size: 17px; font-weight: 800; color: var(--navy);
+    outline: none; font-family: inherit; padding: 0;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+  /* Slider */
+  .cv2-slider {
+    width: 100%; -webkit-appearance: none; appearance: none;
+    height: 5px; border-radius: 3px; outline: none; cursor: pointer;
+    background: linear-gradient(90deg, var(--rose) 20%, var(--border) 20%);
+  }
+  .cv2-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 18px; height: 18px;
+    border-radius: 50%; background: var(--rose);
+    box-shadow: 0 2px 8px rgba(200,90,127,0.4); cursor: pointer;
+    border: 2px solid white;
+  }
+  .cv2-slider-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); margin-top: 6px; }
+
+  /* Day Presets */
+  .cv2-presets { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+  .cv2-preset {
+    font-size: 12px; font-weight: 600; color: var(--text-muted);
+    padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border);
+    background: white; cursor: pointer; transition: all 0.15s; font-family: inherit;
+  }
+  .cv2-preset:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-xlight); }
+
+  /* Result bar */
+  .cv2-result-bar {
+    display: flex; align-items: center; gap: 24px;
+    background: linear-gradient(135deg, var(--navy), #2a3f6a);
+    border-radius: 18px; padding: 28px 32px;
+  }
+  .cv2-result-info { flex: 1; }
+  .cv2-result-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.45); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .cv2-chips { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+  .cv2-chip {
+    background: rgba(255,255,255,0.12); color: white;
+    font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .cv2-chip-sep { color: rgba(255,255,255,0.3); font-size: 12px; font-weight: 700; }
+  .cv2-formula { font-size: 12px; color: rgba(255,255,255,0.35); }
+  .cv2-result-num {
+    font-size: 52px; font-weight: 900; color: var(--rose-light); line-height: 1;
+    letter-spacing: -2px; white-space: nowrap; flex-shrink: 0;
+  }
+  .cv2-cta {
+    display: inline-block; text-decoration: none; white-space: nowrap;
+    background: var(--rose); color: white;
+    padding: 13px 22px; border-radius: 12px; font-size: 14px; font-weight: 700;
+    transition: all 0.2s; box-shadow: 0 4px 16px rgba(200,90,127,0.4); flex-shrink: 0;
+  }
+  .cv2-cta:hover { background: white; color: var(--rose-dark); transform: translateY(-2px); }
+</style>
+
+<script>
+  var currentRate = 60;
+  var currentPlan = 'B';
+  var currentPlanName = '進階整合';
+
+  var planLabels = { A: '基礎照護', B: '進階整合', C: '旗艦全功能' };
+
+  function selectPlanCard(card, rate, plan, name) {
+    document.querySelectorAll('.pw-selectable').forEach(function(c){ c.classList.remove('pw-selected'); });
+    card.classList.add('pw-selected');
+    currentRate = rate; currentPlan = plan; currentPlanName = name;
+    var pi = document.getElementById('piPlan');
+    if (pi) pi.textContent = plan + ' 方案・' + name + '・$' + rate + ' / 床 / 日';
+    recalc();
+    document.getElementById('pricing').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(function(){ document.querySelector('.cv2-wrapper').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 300);
+  }
+
+  function adjustBeds(delta) {
+    var el = document.getElementById('beds');
+    var v = Math.max(1, Math.min(500, (parseInt(el.value) || 0) + delta));
+    el.value = v; syncSlider(); recalc();
+  }
+
+  function adjustDays(delta) {
+    var el = document.getElementById('days');
+    var v = Math.max(1, Math.min(365, (parseInt(el.value) || 0) + delta));
+    el.value = v; recalc();
+  }
+
+  function setDays(d) { document.getElementById('days').value = d; recalc(); }
+
+  function syncBeds(v) {
+    document.getElementById('beds').value = v; recalc();
+  }
+
+  function syncSlider() {
+    var beds = parseInt(document.getElementById('beds').value) || 1;
+    var sl = document.getElementById('bedsSlider');
+    sl.value = Math.min(beds, 100);
+    var pct = ((Math.min(beds,100) - 1) / 99 * 100).toFixed(1);
+    sl.style.background = 'linear-gradient(90deg, var(--rose) ' + pct + '%, var(--border) ' + pct + '%)';
+  }
+
+  function recalc() {
+    var beds = Math.max(1, parseInt(document.getElementById('beds').value) || 1);
+    var days = Math.max(1, parseInt(document.getElementById('days').value) || 1);
+    var total = currentRate * beds * days;
+    document.getElementById('result').textContent = '$' + total.toLocaleString('zh-TW');
+    document.getElementById('chipPlan').textContent = currentPlan + ' 方案';
+    document.getElementById('chipBeds').textContent = beds + ' 床';
+    document.getElementById('chipDays').textContent = days + ' 天';
+    document.getElementById('formula').textContent = '= $' + currentRate + ' × ' + beds + ' × ' + days;
+    syncSlider();
+  }
+</script>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <div class="eyebrow">使用回饋</div>
+    <h2 class="sec-title">護理長這樣說</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">導入後最大的改變是交班時終於清楚了。以前 LINE 和 FB 的訊息各自為政，現在一個畫面全看到，護理師壓力少很多。</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">👩‍⚕️</div>
+        <div>
+          <div class="author-name">陳○○ 護理長</div>
+          <div class="author-role">某產後護理之家 · 台北</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">之前衛福部系統每次維護就整個停用，大家只能先紙本記，之後還要補登好幾天。現在 API 上傳讓我安心很多。</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">👩‍⚕️</div>
+        <div>
+          <div class="author-name">林○○ 機構主任</div>
+          <div class="author-role">某產後護理之家 · 新竹</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">以前交班要一筆一筆翻記錄，現在開啟系統就能看到今日重點摘要，哪位產婦有待處理事項一目了然，每天至少省下半小時。</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">👩‍⚕️</div>
+        <div>
+          <div class="author-name">吳○○ 護理長</div>
+          <div class="author-role">某產後護理之家 · 台中</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP WARM -->
+<section class="roadmap-warm" id="roadmap">
+  <div class="section-header">
+    <div class="eyebrow">發展藍圖</div>
+    <h2 class="sec-title">從產後護理出發<br>邁向全照護生態</h2>
+    <p class="sec-sub">以產後護理之家為核心，逐步擴展至一般護家與居家護理，打造台灣最完整的照護 CRM 平台。</p>
+  </div>
+  <div class="phases-grid">
+    <div class="phase-card current">
+      <div class="phase-n">現在</div>
+      <div class="phase-title">產後護理 CRM</div>
+      <p class="phase-desc">CRM 核心建置、衛福部申報整合、LINE & FB 整合、AI 助理</p>
+      <span class="phase-status status-active">● 進行中</span>
+    </div>
+    <div class="phase-card">
+      <div class="phase-n">近期規劃</div>
+      <div class="phase-title">產婦 APP 與帳款</div>
+      <p class="phase-desc">機構專屬 iOS/Android APP、課程報名、哺餵記錄、帳款管理</p>
+      <span class="phase-status status-coming">即將推出</span>
+    </div>
+    <div class="phase-card">
+      <div class="phase-n">中長期</div>
+      <div class="phase-title">金流 & AI 深化</div>
+      <p class="phase-desc">金流與電子發票、多元餐食、AI 深度整合、資安強化</p>
+      <span class="phase-status status-coming">規劃中</span>
+    </div>
+    <div class="phase-card">
+      <div class="phase-n">未來擴展</div>
+      <div class="phase-title">全照護服務</div>
+      <p class="phase-desc">擴展至一般護家及居家護理 CRM 服務，打造完整照護平台</p>
+      <span class="phase-status status-coming">長期目標</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-warm" id="contact">
+  <h2>準備好讓照護更智慧了嗎？</h2>
+  <p>歡迎預約免費試用，讓您的團隊親身感受系統帶來的改變</p>
+  <div class="cta-warm-actions">
+    <a class="btn-rose" href="mailto:hello@nuriva.tw">預約免費試用</a>
+    <a class="btn-navy-outline" href="#pricing">查看費用方案</a>
+  </div>
+  <div class="cta-contact-info">
+    Email: <a href="mailto:hello@nuriva.tw">hello@nuriva.tw</a>・LINE: <a href="https://line.me/ti/p/@489whizj" target="_blank">@489whizj</a>
+  </div>
+</section>
+
+<footer class="warm">
+  <div class="footer-top">
+    <div class="footer-brand-warm">
+      <div class="nav-logo" style="margin-bottom:10px;">
+        <div class="logo-emblem">🌸</div>
+        <div class="logo-text-group">
+          <span class="logo-name" style="color:white;">NurivaCRM</span>
+          <span class="logo-tagline" style="color:var(--rose-light);">產後照護智慧管理</span>
+        </div>
+      </div>
+      <p>由竹生有限公司開發，專為台灣照護機構設計的 SaaS CRM 系統，讓護理回歸照護本身。</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>公司</h4>
+        <a href="#">關於竹生</a>
+        <a href="mailto:hello@nuriva.tw">hello@nuriva.tw</a>
+        <a href="https://line.me/ti/p/@489whizj" target="_blank">LINE: @489whizj</a>
+        <a href="#">隱私政策</a>
+        <a href="#">服務條款</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 竹生有限公司 版權所有</span>
+    <span class="footer-compliance">符合衛生福利部 產後護理系統介接規範</span>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到最上面">↑</button>
+
+<style>
+  #back-to-top {
+    position: fixed; bottom: 32px; right: 32px; z-index: 999;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--rose); color: white;
+    border: none; cursor: pointer;
+    font-size: 20px; font-weight: 700; line-height: 1;
+    box-shadow: 0 4px 16px rgba(200,90,127,0.4);
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    pointer-events: none;
+  }
+  #back-to-top.visible {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+  }
+  #back-to-top:hover { background: var(--rose-dark); }
+</style>
+
+<script>
+  var btn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
+</script>
+
+</body>
+</html>
