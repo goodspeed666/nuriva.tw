@@ -3,7 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NurivaCRM｜產後護理照護管理系統</title>
+<title>NurivaCRM｜台灣產後護理之家照護管理系統｜竹生有限公司</title>
+
+<!-- SEO Meta -->
+<meta name="description" content="NurivaCRM 是專為台灣產後護理之家設計的低月租 SaaS CRM 系統。整合衛福部照護表單、LINE & Facebook 客服、自動排程上傳，讓機構擺脫行政負擔，專注照護每位產婦及寶寶。">
+<meta name="keywords" content="產後護理之家,月子中心系統,照護CRM,衛福部表單,產後護理系統,月子中心管理,SaaS,NurivaCRM,竹生有限公司">
+<meta name="author" content="竹生有限公司">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nuriva.tw/">
+
+<!-- Open Graph (Facebook / LINE 預覽) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nuriva.tw/">
+<meta property="og:title" content="NurivaCRM｜台灣產後護理之家照護管理系統">
+<meta property="og:description" content="整合衛福部照護表單、LINE & Facebook 客服、自動排程上傳。低月租 SaaS，讓機構從繁瑣行政中解放，專注照護每位產婦及寶寶。">
+<meta property="og:image" content="https://nuriva.tw/og-image.png">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="NurivaCRM">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NurivaCRM｜台灣產後護理之家照護管理系統">
+<meta name="twitter:description" content="整合衛福部照護表單、LINE & Facebook 客服、自動排程上傳。低月租 SaaS，讓機構從繁瑣行政中解放。">
+<meta name="twitter:image" content="https://nuriva.tw/og-image.png">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NurivaCRM",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "專為台灣產後護理之家設計的低月租 SaaS CRM 系統，整合衛福部照護表單、LINE & Facebook 客服、自動排程上傳。",
+  "url": "https://nuriva.tw/",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "TWD",
+    "price": "50",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "50",
+      "priceCurrency": "TWD",
+      "unitText": "每床每日起"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "竹生有限公司",
+    "url": "https://nuriva.tw/",
+    "email": "hello@nuriva.tw",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "hello@nuriva.tw"
+    }
+  }
+}
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLE26PDKP4"></script>
 <script>
@@ -382,7 +439,19 @@
     <li><a href="#contact">聯絡我們</a></li>
   </ul>
   <a class="nav-cta" href="#contact">預約免費試用</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile" id="navMobile">
+  <ul class="nav-mobile-links">
+    <li><a href="#features" onclick="closeMobileNav()">功能特色</a></li>
+    <li><a href="#pricing" onclick="closeMobileNav()">費用方案</a></li>
+    <li><a href="#roadmap" onclick="closeMobileNav()">發展藍圖</a></li>
+    <li><a href="#contact" onclick="closeMobileNav()">聯絡我們</a></li>
+  </ul>
+  <a class="btn-rose" href="#contact" onclick="closeMobileNav()" style="display:block;text-align:center;margin-top:8px;">預約免費試用</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1038,13 +1107,138 @@
     opacity: 1; transform: translateY(0); pointer-events: auto;
   }
   #back-to-top:hover { background: var(--rose-dark); }
+
+  /* ══════════════════════════════
+     MOBILE NAV HAMBURGER
+  ══════════════════════════════ */
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 40px; height: 40px; background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; height: 2px; width: 24px; background: var(--navy);
+    border-radius: 2px; transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile {
+    display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+    background: rgba(255,255,255,0.98); backdrop-filter: blur(12px);
+    padding: 24px 5% 32px; box-shadow: 0 8px 32px rgba(30,45,74,0.12);
+    border-top: 1px solid var(--border);
+  }
+  .nav-mobile.open { display: block; }
+  .nav-mobile-links { list-style: none; display: flex; flex-direction: column; margin-bottom: 20px; }
+  .nav-mobile-links a {
+    display: block; padding: 14px 0; font-size: 16px; font-weight: 600;
+    color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border);
+  }
+
+  /* ══════════════════════════════
+     RESPONSIVE — MOBILE (≤768px)
+  ══════════════════════════════ */
+  @media (max-width: 768px) {
+    /* Nav */
+    .nav-links, .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+
+    /* Hero */
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 100px 5% 60px; min-height: auto; }
+    .hero h1 { font-size: 36px; }
+    .hero-lead { font-size: 16px; }
+    .hero-right { display: none; }
+    .hero-ctas { flex-direction: column; }
+    .btn-rose, .btn-navy-outline { text-align: center; }
+
+    /* Sections */
+    section { padding: 60px 5%; }
+    .section-header { margin-bottom: 40px; }
+    .sec-title { font-size: 28px; }
+    .sec-sub { font-size: 15px; }
+
+    /* How it works */
+    .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .steps::before { display: none; }
+    .step { padding: 0 8px; }
+
+    /* Features alternating */
+    .feat-alt { grid-template-columns: 1fr !important; direction: ltr !important; gap: 32px; padding: 60px 5%; }
+    .feat-alt > * { direction: ltr !important; }
+    .feat-visual { padding: 24px; }
+    .feat-title { font-size: 22px; }
+    .vs-grid { grid-template-columns: 1fr; gap: 16px; }
+    .vs-divider { display: none; }
+
+    /* Pricing */
+    .pricing-grid-warm { grid-template-columns: 1fr; gap: 32px; }
+    .pw-card.best { margin: 8px 0; }
+    .cv2-pi-hint { display: none; }
+
+    /* Calculator */
+    .cv2-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .cv2-header-note { display: none; }
+    .cv2-body { padding: 20px; gap: 20px; }
+    .cv2-controls { grid-template-columns: 1fr; }
+    .cv2-result-bar { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 20px; }
+    .cv2-result-num { font-size: 40px; }
+    .cv2-cta { width: 100%; text-align: center; }
+
+    /* Testimonials */
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    /* Roadmap */
+    .phases-grid { grid-template-columns: 1fr 1fr; }
+    .phase-card { padding: 20px 16px; }
+
+    /* CTA */
+    .cta-warm h2 { font-size: 28px; }
+    .cta-warm p { font-size: 16px; }
+    .cta-warm-actions { flex-direction: column; align-items: center; }
+
+    /* Footer */
+    .footer-top { flex-direction: column; gap: 32px; }
+    .footer-links { flex-direction: column; gap: 24px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+    /* Back to top */
+    #back-to-top { bottom: 20px; right: 20px; width: 42px; height: 42px; font-size: 17px; }
+  }
+
+  /* RESPONSIVE — Small mobile (≤480px) */
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 30px; }
+    .sec-title { font-size: 24px; }
+    .steps { grid-template-columns: 1fr; }
+    .phases-grid { grid-template-columns: 1fr; }
+    .cv2-plan-indicator { flex-direction: column; align-items: flex-start; gap: 4px; }
+  }
 </style>
 
 <script>
+  // Back to top
   var btn = document.getElementById('back-to-top');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 300) btn.classList.add('visible');
     else btn.classList.remove('visible');
+  });
+
+  // Hamburger menu
+  var hamburger = document.getElementById('navHamburger');
+  var mobileNav = document.getElementById('navMobile');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  function closeMobileNav() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+  }
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+      closeMobileNav();
+    }
   });
 </script>
 
