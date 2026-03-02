@@ -381,16 +381,69 @@
   .status-coming { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); }
 
   /* CTA */
-  .cta-warm {
+  /* CONTACT SECTION */
+  .contact-section {
     padding: 100px 5%;
-    background: linear-gradient(135deg, var(--rose-xlight), white, #EEF2FF);
-    text-align: center;
+    background: linear-gradient(160deg, var(--navy) 0%, #2a3f6a 100%);
   }
-  .cta-warm h2 { font-size: 44px; font-weight: 900; color: var(--navy); margin-bottom: 16px; letter-spacing: -0.5px; }
-  .cta-warm p { font-size: 18px; color: var(--text-muted); margin-bottom: 40px; }
-  .cta-warm-actions { display: flex; gap: 16px; justify-content: center; }
-  .cta-contact-info { margin-top: 32px; font-size: 14px; color: var(--text-muted); }
-  .cta-contact-info a { color: var(--navy); text-decoration: none; font-weight: 600; }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start;
+  }
+  /* Left copy */
+  .contact-title {
+    font-size: 40px; font-weight: 900; color: white; line-height: 1.15;
+    margin-bottom: 20px; letter-spacing: -0.5px;
+  }
+  .contact-lead { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 32px; }
+  .contact-perks { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+  .contact-perk { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: rgba(255,255,255,0.8); }
+  .perk-icon {
+    width: 22px; height: 22px; border-radius: 50%; background: var(--rose);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 900; color: white; flex-shrink: 0; margin-top: 1px;
+  }
+  .contact-direct { display: flex; flex-direction: column; gap: 10px; }
+  .contact-direct-item { display: flex; align-items: center; gap: 10px; }
+  .contact-direct-label { font-size: 13px; color: rgba(255,255,255,0.4); min-width: 70px; }
+  .contact-direct-item a { color: var(--rose-light); font-size: 14px; font-weight: 600; text-decoration: none; }
+  .contact-direct-item a:hover { color: white; }
+
+  /* Form card */
+  .contact-form-card {
+    background: white; border-radius: 24px; padding: 40px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+  }
+  .contact-form-title { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+  .contact-form-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+  .cf-row { margin-bottom: 18px; }
+  .cf-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+  .cf-field { display: flex; flex-direction: column; gap: 6px; }
+  .cf-label { font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.5px; }
+  .cf-req { color: var(--rose); }
+  .cf-input {
+    padding: 11px 14px; border: 2px solid var(--border); border-radius: 10px;
+    font-size: 14px; color: var(--text); background: var(--off-white);
+    outline: none; transition: border-color 0.2s; font-family: inherit; width: 100%;
+  }
+  .cf-input:focus { border-color: var(--rose); background: white; }
+  .cf-input.cf-error { border-color: #ef4444; }
+  .cf-textarea { resize: vertical; min-height: 100px; }
+  .cf-err { font-size: 11px; color: #ef4444; display: none; margin-top: 2px; }
+  .cf-err.show { display: block; }
+  .cf-submit {
+    width: 100%; padding: 14px; border-radius: 12px; border: none;
+    background: var(--rose); color: white; font-size: 16px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s; font-family: inherit; margin-top: 8px;
+    box-shadow: 0 6px 20px rgba(200,90,127,0.35);
+  }
+  .cf-submit:hover { background: var(--rose-dark); transform: translateY(-2px); }
+  .cf-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+  .cf-success {
+    text-align: center; padding: 32px 20px;
+  }
+  .cf-success-icon { font-size: 48px; margin-bottom: 16px; }
+  .cf-success-title { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+  .cf-success-msg { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
 
   /* FOOTER English serif */
   .footer-brand-warm .logo-name,
@@ -654,8 +707,8 @@
       <div class="pw-plan">A 方案</div>
       <div class="pw-name">基礎照護</div>
       <div class="pw-price">
-        <span class="pw-price-num">50</span>
-        <span class="pw-price-unit">元 / 床 / 日</span>
+        <span class="pw-price-num">$50</span>
+        <span class="pw-price-unit">/ 床 / 日</span>
       </div>
       <div class="pw-note">數位化第一步</div>
       <hr class="pw-sep">
@@ -673,8 +726,8 @@
       <div class="pw-plan">B 方案</div>
       <div class="pw-name">進階整合</div>
       <div class="pw-price">
-        <span class="pw-price-num">60</span>
-        <span class="pw-price-unit">元 / 床 / 日</span>
+        <span class="pw-price-num">$60</span>
+        <span class="pw-price-unit">/ 床 / 日</span>
       </div>
       <div class="pw-note">強化客戶關係，提升行政效率</div>
       <hr class="pw-sep">
@@ -692,8 +745,8 @@
       <div class="pw-plan">C 方案</div>
       <div class="pw-name">旗艦全功能</div>
       <div class="pw-price">
-        <span class="pw-price-num">70</span>
-        <span class="pw-price-unit">元 / 床 / 日</span>
+        <span class="pw-price-num">$70</span>
+        <span class="pw-price-unit">/ 床 / 日</span>
       </div>
       <div class="pw-note">頂級機構完整數位生態系</div>
       <hr class="pw-sep">
@@ -975,7 +1028,7 @@
     <div class="testimonial-card">
       <div class="test-stars">★★★★★</div>
       <div class="testimonial-quote">"</div>
-      <p class="testimonial-text">導入後最大的改變是交班時終於清楚了。以前 LINE 和 FB 的訊息各自為政，現在一個畫面全看到，護理師壓力少很多。</p>
+      <p class="testimonial-text">導入後最大的改變是交班時終於清楚了。以前 LINE 和 FB 的訊息各自為政，現在一個畫面全看到，客服及護理人員輕鬆不少。</p>
       <div class="testimonial-author">
         <div class="author-avatar">👩‍⚕️</div>
         <div>
@@ -1047,15 +1100,96 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-warm" id="contact">
-  <h2>準備好讓照護更智慧了嗎？</h2>
-  <p>歡迎預約免費試用，讓您的團隊親身感受系統帶來的改變</p>
-  <div class="cta-warm-actions">
-    <a class="btn-rose" href="mailto:hello@nuriva.tw">預約免費試用</a>
-    <a class="btn-navy-outline" href="#pricing">查看費用方案</a>
-  </div>
-  <div class="cta-contact-info">
-    Email: <a href="mailto:hello@nuriva.tw">hello@nuriva.tw</a>・LINE: <a href="https://line.me/ti/p/@489whizj" target="_blank">@489whizj</a>
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+
+    <!-- Left: Copy -->
+    <div class="contact-copy">
+      <div class="eyebrow" style="color:var(--rose-light);">預約試用</div>
+      <h2 class="contact-title">免費試用一個月<br>親身感受系統改變</h2>
+      <p class="contact-lead">填寫表單後，我們將於兩個工作天內與您聯繫，安排系統 Demo 及免費試用事宜。</p>
+      <div class="contact-perks">
+        <div class="contact-perk">
+          <span class="perk-icon">✓</span>
+          <span>免費試用完整功能，無需信用卡</span>
+        </div>
+        <div class="contact-perk">
+          <span class="perk-icon">✓</span>
+          <span>專人協助系統設定與教育訓練</span>
+        </div>
+        <div class="contact-perk">
+          <span class="perk-icon">✓</span>
+          <span>最快一週內完成導入，快速上線</span>
+        </div>
+      </div>
+      <div class="contact-direct">
+        <div class="contact-direct-item">
+          <span class="contact-direct-label">📧 Email</span>
+          <a href="mailto:hello@nuriva.tw">hello@nuriva.tw</a>
+        </div>
+        <div class="contact-direct-item">
+          <span class="contact-direct-label">💬 LINE</span>
+          <a href="https://line.me/ti/p/@489whizj" target="_blank">@489whizj</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-form-wrap">
+      <div class="contact-form-card">
+        <div class="contact-form-title">填寫預約資料</div>
+        <div class="contact-form-sub">帶 * 為必填欄位</div>
+        <form id="contactForm" novalidate>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label class="cf-label" for="org">機構名稱</label>
+              <input class="cf-input" type="text" id="org" name="機構名稱" placeholder="例：○○產後護理之家">
+            </div>
+          </div>
+          <div class="cf-row cf-row-2">
+            <div class="cf-field">
+              <label class="cf-label" for="name">聯絡人 <span class="cf-req">*</span></label>
+              <input class="cf-input" type="text" id="name" name="聯絡人" placeholder="姓名" required>
+              <div class="cf-err" id="err-name">請填寫聯絡人姓名</div>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="title">職稱 <span class="cf-req">*</span></label>
+              <input class="cf-input" type="text" id="title" name="職稱" placeholder="例：護理長" required>
+              <div class="cf-err" id="err-title">請填寫職稱</div>
+            </div>
+          </div>
+          <div class="cf-row cf-row-2">
+            <div class="cf-field">
+              <label class="cf-label" for="phone">聯絡電話 <span class="cf-req">*</span></label>
+              <input class="cf-input" type="tel" id="phone" name="聯絡電話" placeholder="例：0912-345-678" required>
+              <div class="cf-err" id="err-phone">請填寫聯絡電話</div>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="email">Email <span class="cf-req">*</span></label>
+              <input class="cf-input" type="email" id="email" name="Email" placeholder="example@email.com" required>
+              <div class="cf-err" id="err-email">請填寫有效的 Email</div>
+            </div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label class="cf-label" for="msg">留言</label>
+              <textarea class="cf-input cf-textarea" id="msg" name="留言" placeholder="請描述您的機構規模、目前使用的系統或其他需求⋯" rows="4"></textarea>
+            </div>
+          </div>
+          <button class="cf-submit" type="submit" id="cfSubmit">
+            <span id="cfBtnText">送出預約申請 →</span>
+            <span id="cfBtnLoading" style="display:none;">傳送中⋯</span>
+          </button>
+        </form>
+        <!-- Success state -->
+        <div class="cf-success" id="cfSuccess" style="display:none;">
+          <div class="cf-success-icon">🎉</div>
+          <div class="cf-success-title">已收到您的申請！</div>
+          <div class="cf-success-msg">我們將於兩個工作天內與您聯繫，感謝您。</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1191,10 +1325,11 @@
     .phases-grid { grid-template-columns: 1fr 1fr; }
     .phase-card { padding: 20px 16px; }
 
-    /* CTA */
-    .cta-warm h2 { font-size: 28px; }
-    .cta-warm p { font-size: 16px; }
-    .cta-warm-actions { flex-direction: column; align-items: center; }
+    /* Contact section */
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+    .contact-title { font-size: 28px; }
+    .cf-row-2 { grid-template-columns: 1fr; }
+    .contact-form-card { padding: 28px 20px; }
 
     /* Footer */
     .footer-top { flex-direction: column; gap: 32px; }
@@ -1216,7 +1351,82 @@
 </style>
 
 <script>
-  // Back to top
+  // ── Contact Form ──
+  var FORMSPREE_URL = '/api/contact';
+  var isSubmitting = false;      // 防止重複點擊
+  var lastSubmitTime = 0;        // 防止短時間內重複送出
+  var SUBMIT_COOLDOWN = 60000;   // 60 秒冷卻時間
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // 防止重複送出
+    if (isSubmitting) return;
+    var now = Date.now();
+    if (now - lastSubmitTime < SUBMIT_COOLDOWN) {
+      var remaining = Math.ceil((SUBMIT_COOLDOWN - (now - lastSubmitTime)) / 1000);
+      alert('您剛剛已送出過申請，請等待 ' + remaining + ' 秒後再試。');
+      return;
+    }
+
+    var valid = true;
+
+    function validate(id, errId, checkFn) {
+      var el = document.getElementById(id);
+      var err = document.getElementById(errId);
+      if (!checkFn(el.value.trim())) {
+        el.classList.add('cf-error');
+        err.classList.add('show');
+        valid = false;
+      } else {
+        el.classList.remove('cf-error');
+        err.classList.remove('show');
+      }
+    }
+
+    validate('name',  'err-name',  function(v){ return v.length > 0; });
+    validate('title', 'err-title', function(v){ return v.length > 0; });
+    validate('phone', 'err-phone', function(v){ return v.length >= 8; });
+    validate('email', 'err-email', function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); });
+
+    if (!valid) return;
+
+    // 鎖定送出
+    isSubmitting = true;
+    var btn = document.getElementById('cfSubmit');
+    document.getElementById('cfBtnText').style.display = 'none';
+    document.getElementById('cfBtnLoading').style.display = 'inline';
+    btn.disabled = true;
+
+    var formData = new FormData(this);
+    var jsonData = {};
+    formData.forEach(function(value, key) { jsonData[key] = value; });
+    fetch(FORMSPREE_URL, {
+      method: 'POST',
+      body: JSON.stringify(jsonData),
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    }).then(function(res) {
+      if (res.ok) {
+        lastSubmitTime = Date.now(); // 記錄成功送出時間
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('cfSuccess').style.display = 'block';
+      } else {
+        alert('送出失敗，請直接來信 hello@nuriva.tw，謝謝！');
+        isSubmitting = false;
+        btn.disabled = false;
+        document.getElementById('cfBtnText').style.display = 'inline';
+        document.getElementById('cfBtnLoading').style.display = 'none';
+      }
+    }).catch(function() {
+      alert('網路異常，請直接來信 hello@nuriva.tw，謝謝！');
+      isSubmitting = false;
+      btn.disabled = false;
+      document.getElementById('cfBtnText').style.display = 'inline';
+      document.getElementById('cfBtnLoading').style.display = 'none';
+    });
+  });
+
+  // ── Back to top ──
   var btn = document.getElementById('back-to-top');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 300) btn.classList.add('visible');
